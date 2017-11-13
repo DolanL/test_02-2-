@@ -1,42 +1,36 @@
 #include <iostream>
-#include <string>
-#include <limits>
 using namespace std;
-int main() {
-  string length;
-  string array;
-  string result;
-  string count;
-  string part1, part2;
-  int length_int;
-  int counter = 0;
-  int k = 0;
-  int z = 0;
-  cin >> length;
-  cin.ignore(numeric_limits<streamsize>::max(), '\n');
-  getline(cin, array);
-  length_int = atoi(length.c_str());
-  for (int i = 0; i < array.length(); i++) {
-    if (array[i] == ' ') counter++;
-  }
-  if (length_int != (counter + 1))
-    cout << " An error has occurred while reading" << endl;
-  else {
-    getline(cin, count);
-    if (count == "") {
-      cout << " An error has occurred while reading" << endl;
-    } else {
-      while (k != (length_int - atoi(count.c_str()))) {
-        part2 = part2 + array[z];
-        if (array[z] == ' ') k++;
-        z++;
-      }
-      for (int i = part2.length(); i < array.length(); i++) {
-        part1 = part1 + array[i];
-      }
-
-      result = part1 + ' ' + part2;
-      cout << result << endl;
-    }
-  }
+int main()
+{
+int i;
+int k; 
+int z;
+cin >> k;
+if (k <= 0){
+cout << "An error has occurred while reading input data" << endl;
+return 0;
+}
+int *a = new int[k];
+for (i = 0; i < k; i++) {
+cin >> a[i];
+}
+cin >> z;
+if (z <= 0){
+cout << "An error has occurred while reading input data" << endl;
+return 0;
+}
+int b[ z ], c[ k - z ];
+for (i = 0; i < z; i++) {
+b[i] = a[i];
+}
+for (i = 0; i < k - z; i++) {
+c[i] = a[i + z];
+}
+for (i = 0; i < k - z; i++) {
+cout << c[i] << " ";
+}
+for (i = 0; i < z; i++) {
+cout << b[i] << " ";
+}
+return 0;
 }
